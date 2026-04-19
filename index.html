@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi bonita</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos generales y fondo total */
+        body, html {
+            height: 100%; margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden; 
+        }
+        
+        .contenedor-fondo {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+        }
+
+        .imagen-bebes {
+            width: 100%; height: 100%;
+            background-image: url("photo_2026-04-18_20-14-41.jpg"); 
+            background-size: cover; background-position: center;
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+            transform: scale(1.1);
+        }
+
+        .overlay-vinotinto {
+            background-color: rgba(60, 0, 15, 0.6);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+        
+        /* TARJETA ACTUALIZADA */
+        .tarjeta {
+            text-align: center; color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px 25px; /* Un poco menos de padding para dar espacio al texto */
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 85%; 
+            width: 450px;
+            max-height: 80vh; /* LIMITA LA ALTURA al 80% de la pantalla */
+            display: flex;
+            flex-direction: column; /* Organiza el contenido en columna */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative; z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5em; margin: 0 0 10px;
+            font-family: 'Great Vibes', cursive;
+            color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            flex-shrink: 0; /* Evita que el título se encoja */
+        }
+
+        h2 {
+            font-size: 1.3em; font-weight: 400; margin: 0 0 15px;
+            color: #ffcccc;
+            flex-shrink: 0;
+        }
+
+        /* MENSAJE ACTUALIZADO CON SCROLL */
+        #mensaje-oculto {
+            display: none; 
+            font-size: 1.05em; 
+            line-height: 1.6;
+            color: #fff; 
+            text-align: left;
+            overflow-y: auto; /* Habilita el scroll vertical */
+            padding-right: 10px; /* Espacio para que el texto no pegue con la barra */
+        }
+
+        /* Personalización de la barra de scroll (opcional, para que se vea bonita) */
+        #mensaje-oculto::-webkit-scrollbar {
+            width: 6px;
+        }
+        #mensaje-oculto::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        #btnSorpresa {
+            background-color: #6F0B22;
+            color: white; border: none; padding: 15px 35px; font-size: 1.2em;
+            border-radius: 30px; cursor: pointer; transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(111, 11, 34, 0.7);
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        #btnSorpresa:hover {
+            background-color: #8A102E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(111, 11, 34, 0.9);
+        }
+
+        .aparecer {
+            animation: fadeIn 1.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-fondo">
+        <div class="imagen-bebes"></div>
+        <div class="overlay-vinotinto"></div>
+    </div>
+
+    <audio id="musicaFondo" src="Morat - Cuando Nadie Ve (Audio).mp3" loop></audio>
+    
+    <div class="tarjeta">
+        <h2>Feliz Cumpleaños Mi Mujer Preciosa</h2>
+        <h1>Mi currucuntum🤍</h1>
+        
+        <button id="btnSorpresa">Con todo mi amor</button>
+        
+        <div id="mensaje-oculto">
+            <p>Mi negra</p>
+            <p>Desde los km de distancia que nos separan, agradezco a Dios desde lo más sincero de mi corazón por permitirle cumplir un año más de vida a la mujer de mi vida, el amor de mi alma y mi felicidad entera, a vos mi vida, te deseo un feliz cumpleaños y una felicidad eterna, eres una mujer maravillosa, hermosa, inteligente y podría pasar horas describiendote mi cielo. te deseo lo mejor en este cumpleaños mi negra, que cada día te superes más, eres capaz de lo posible y lo imposible,sos la mujer más valiente que conozco y la mejor mujer que he podido conocer en mi vida, es una bendición y soy el más afortunado por el hecho de tenerte en mi vida, desde que llegaste a ella me has hecho el hombre más amado y el más feliz. eres super espectacular mi bonita, nunca lo olvides, puedes con todo y más</p>
+            <p>Estaré para apoyarte en todo momento en tu vida, como tú lo estarás para la mía, Nada podrá separarnos, te apoyaré y te ayudaré en tus momentos débiles, Espero que este año puedas alcanzar tus objetivos y metas propuestas y que el próximo año lo podamos pasar juntos y llenar nuestro cumpleaños de momentos y recuerdos hermosos. te admiro, te adoro y te amoo con el alma mi currucuntum<p>
+            <p>Te amo, te adoro y te admiro ∞ mi currucuntum 🤍</p>
+            <p style="text-align: right; margin-top: 20px;">— Tu nerro, amor de mi alma</p>
+        </div>
+    </div>
+
+    <script>
+        const btnSorpresa = document.getElementById('btnSorpresa');
+        const mensajeOculto = document.getElementById('mensaje-oculto');
+        const musicaFondo = document.getElementById('musicaFondo');
+
+        btnSorpresa.addEventListener('click', function() {
+            this.style.display = 'none'; 
+            mensajeOculto.style.display = 'block'; 
+            mensajeOculto.classList.add('aparecer');
+            
+            if (musicaFondo.getAttribute('src')) {
+                musicaFondo.play().catch(e => console.log("Audio bloquedo"));
+            }
+            
+            confetti({
+                particleCount: 100, spread: 70, origin: { y: 0.6 },
+                colors: ['#6F0B22', '#ffcccc', '#ffffff']
+            });
+        });
+    </script>
+</body>
+</html>
